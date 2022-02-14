@@ -1,12 +1,27 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import Fetch from './components/Fetch.vue';
+import Axios from './components/Axios.vue';
+import AxiosPagination from './components/AxiosPagination.vue';
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <Fetch />
+  <suspense>
+    <template #default>
+      <Axios />
+    </template>
+    <template #fallback>
+      <div>Daten werden geladen...</div>
+    </template>
+  </suspense>
+  <suspense>
+    <template #default>
+      <AxiosPagination />
+    </template>
+    <template #fallback>
+      <div>Daten werden geladen...</div>
+    </template>
+  </suspense>
 </template>
 
 <style>

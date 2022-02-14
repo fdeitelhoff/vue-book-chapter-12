@@ -16,16 +16,16 @@ const fetchStoreItemsAsync = async () => {
 
   if (!response.ok) {
     console.log(`An error has occured: ${response.status}`);
-    throw new Error();
+    // throw new Error();
   }
 
   const data = await response.json();
 };
 
-fetchStoreItems();
-await fetchStoreItemsAsync();
+// fetchStoreItems();
+// await fetchStoreItemsAsync();
 </script>
 
 <template>
-  <div></div>
+  <div>Komponente mit Fetch API</div>
 </template>
