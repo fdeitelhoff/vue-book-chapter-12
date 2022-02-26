@@ -5,13 +5,20 @@ import AxiosPagination from './components/AxiosPagination.vue';
 </script>
 
 <template>
-  <Fetch />
+  <suspense>
+    <template #default>
+      <Fetch />
+    </template>
+    <template #fallback>
+      <div>Fetch.vue: Daten werden geladen...</div>
+    </template>
+  </suspense>
   <suspense>
     <template #default>
       <Axios />
     </template>
     <template #fallback>
-      <div>Daten werden geladen...</div>
+      <div>Axios.vue: Daten werden geladen...</div>
     </template>
   </suspense>
   <suspense>
@@ -19,7 +26,7 @@ import AxiosPagination from './components/AxiosPagination.vue';
       <AxiosPagination />
     </template>
     <template #fallback>
-      <div>Daten werden geladen...</div>
+      <div>AxiosPagination.vue: Daten werden geladen...</div>
     </template>
   </suspense>
 </template>
